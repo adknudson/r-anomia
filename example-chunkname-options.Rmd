@@ -1,0 +1,58 @@
+---
+title: "example chunk options"
+author: "Alex Knudson"
+date: "5/14/2021"
+output: html_document
+chunknames:
+  combo:
+    prefix: "020"
+    extra: ["data/my_list1.rda", "data/my_list2.rda"]
+    pattern:
+      - adjective
+      - color
+      - animal
+      - my_list1
+    sep: "-"
+    case: lower
+  random:
+    prefix: no
+    type: "hex/alpha/alphanumeric"
+    length: 12
+    case: "lower"
+  regex:
+    pattern: "myprefix-[A-Za-z]{1, 2}[a-f0-9]{6}"
+  regex2:
+    prefix: "myprefix"
+    sep: "-"
+    patterns:
+      - "[A-Za-z]{1,2}"
+      - "string_literal"
+      - "[a-f0-9]{6}"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Heading 1
+
+```{r}
+x <- 1:13
+```
+
+## Heading 2
+
+This is some inline r code: `r date()`
+
+## Heading 3
+
+```{r named, eval=FALSE}
+# here is some more code
+```
+
+## Heading 4
+
+```{r, echo=TRUE, eval=TRUE, cache=FALSE}
+rnorm(10)
+```
+

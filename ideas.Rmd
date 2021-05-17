@@ -1,0 +1,62 @@
+---
+title: "Chunk Naming Ideas"
+output: html_notebook
+---
+
+## Idea
+
+- should be (optionally) `yaml` based
+- should have an addin for RStudio
+- should be smart and add labels for missing chunk names
+- should have option to replace prefix
+- should be able to re-name all chunks
+- should be smart about not re-using chunk labels
+  - maybe count the number of chunks versus number of possibilities
+  - keep a cache of used chunk labels
+- users should be able to add their own word lists
+- should be able to specify a combo name or a random string
+
+## Example
+
+```yaml
+---
+title: "Example of chunk options"
+output: html_notebook
+chunknames:
+  combo:
+    prefix: "020"
+    extra: ["data/my_list1.rda", "data/my_list2.rda"]
+    pattern:
+      - adjective
+      - color
+      - animal
+      - my_list1
+    sep: "-"
+    case: "lower"
+---
+```
+
+The above chunknames options will produce a name with a prefix and four words (one from each list in the order specified) separated by dashes. E.g. `020-radiant-blue-fox-alive`. Extra lists should probably be saved as a vector of words as an R object.
+
+## Execution
+
+I saw it mentioned that one can convert an Rmarkdown to xml using `tinkr`, and then parse/manipulate using `xml2`. Finally transform back to Rmarkdown. 
+
+## Types of names
+
+- combo
+  - combinations of wordbanks
+- random
+  - random string of a given length
+  - can basically work the same as regex
+- regex
+  - write a regex pattern match to work backwards and generate a string
+  - Like this!!: https://onlinestringtools.com/generate-string-from-regex
+  - see here for javascript version: http://fent.github.io/randexp.js/#r=myprefix-%5BA-Z%5D%7B2%7D-%5Ba-f0-9%5D%7B6%7D
+  - useful because you can use regex to search a project, so the same regex used to create the string can be used to find the string
+  - more simply, `stringi` has the `stri_rand_strings()` function which may serve as an accessible tool
+- sequential
+  - most similar to `namer` and `unnamedchunk` that rmarkdown does by default
+  - renames all chunks in the document
+  - warn users that this can cause cache issues
+  

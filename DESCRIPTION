@@ -1,0 +1,25 @@
+Package: anomia
+Title: Give Your Code Blocks a Name
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Alex",
+           family = "Knudson",
+           role = c("aut", "cre"),
+           email = "aknudson@nevada.unr.edu")
+Description: The main problem for those with anomic aphasia (anomia) is finding the 
+    appropriate word to identify an object or person. It's the same problem for naming code 
+    chunks in an Rmarkdown file. This package will do the work of naming your code blocks 
+    for you.
+License: GPL (>= 3) + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Imports: 
+    xml2,
+    stringi,
+    rmarkdown
+Remotes:
+  ropensci/tinkr
+Depends: 
+    R (>= 2.10)
