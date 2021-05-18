@@ -18,7 +18,8 @@ RoxygenNote: 7.1.1
 Imports: 
     xml2,
     stringi,
-    rmarkdown
+    rmarkdown,
+    stringr
 Remotes:
   ropensci/tinkr
 Depends: 
