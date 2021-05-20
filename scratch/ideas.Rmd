@@ -1,6 +1,6 @@
 ---
 title: "Chunk Naming Ideas"
-output: html_notebook
+output: html_document
 ---
 
 ## Idea
@@ -25,14 +25,30 @@ output: html_notebook
 chunknames:
   combo:
     prefix: "020"
-    extra: ["data/my_list1.rda", "data/my_list2.rda"]
+    suffix: no
     pattern:
-      - adjective
-      - color
-      - animal
+      - wb_adjectives
+      - wb_colors
+      - wb_animals
       - my_list1
+    case: "lower/upper/title/sentence"
     sep: "-"
-    case: "lower"
+    extra: ["data/my_list1.rda", "data/my_list2.rda"]
+  random:
+    prefix: no
+    suffix: no
+    type: "hex/alpha/alphanumeric"
+    case: "lower/upper/mixed"
+    length: 12
+  regex:
+    pattern: "020-[A-Za-z]{2}-string_literal-[a-f0-9]{6}"
+  regex2:
+    patterns:
+      - "020"
+      - "[A-Za-z]{2}"
+      - "string_literal"
+      - "[a-f0-9]{6}"
+    sep: "-"
 ---
 ```
 

@@ -6,28 +6,12 @@ output: html_document
 chunknames:
   combo:
     prefix: "020"
-    extra: ["data/my_list1.rda", "data/my_list2.rda"]
+    suffix: "adk"
     pattern:
-      - adjective
-      - color
-      - animal
-      - my_list1
+      - [wb_adjectives, wb_colors]
+      - [wb_animals, wb_fruits]
     sep: "-"
-    case: lower
-  random:
-    prefix: no
-    type: "hex/alpha/alphanumeric"
-    length: 12
-    case: "lower"
-  regex:
-    pattern: "myprefix-[A-Za-z]{1, 2}[a-f0-9]{6}"
-  regex2:
-    prefix: "myprefix"
-    sep: "-"
-    patterns:
-      - "[A-Za-z]{1,2}"
-      - "string_literal"
-      - "[a-f0-9]{6}"
+    case: "title"
 ---
 
 ```{r setup, include=FALSE}
@@ -55,4 +39,5 @@ This is some inline r code: `r date()`
 ```{r, echo=TRUE, eval=TRUE, cache=FALSE}
 rnorm(10)
 ```
+
 

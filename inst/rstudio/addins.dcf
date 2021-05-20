@@ -1,0 +1,5 @@
+Name: Label Rmd Chunks
+Description: Gives labels to unnamed chunks of a specified R Markdown document.
+Binding: name_chunks_addin
+Interactive: true
+

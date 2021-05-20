@@ -19,22 +19,22 @@ get_el_wordlist <- function(word_list_name) {
   })
 }
 
-wb_adjectives <- get_el_wordlist("adjectives")
-wb_adjectives <- wb_adjectives[str_detect(wb_adjectives, " |-", TRUE)]
-wb_adjectives <- wb_adjectives[nchar(wb_adjectives) %in[]% c(4, 8)]
+adjectives <- get_el_wordlist("adjectives")
+adjectives <- adjectives[str_detect(adjectives, " |-", TRUE)]
+adjectives <- adjectives[nchar(adjectives) %in[]% c(4, 8)]
 
-wb_adverbs <- get_el_wordlist("adverbs")
-wb_adverbs <- wb_adverbs[str_detect(wb_adverbs, "ly$")]
-wb_adverbs <- wb_adverbs[nchar(wb_adverbs) %in[]% c(4, 10)]
+adverbs <- get_el_wordlist("adverbs")
+adverbs <- adverbs[str_detect(adverbs, "ly$")]
+adverbs <- adverbs[nchar(adverbs) %in[]% c(4, 10)]
 
-wb_animals <- get_el_wordlist("animal")
-wb_animals <- wb_animals[str_detect(wb_animals, " |-", TRUE)]
-wb_animals <- tolower(wb_animals)
-wb_animals <- wb_animals[nchar(wb_animals) %in[]% c(4, 10)]
+animals <- get_el_wordlist("animal")
+animals <- animals[str_detect(animals, " |-", TRUE)]
+animals <- tolower(animals)
+animals <- animals[nchar(animals) %in[]% c(4, 10)]
 
-wb_colors <- get_el_wordlist("colors")
-wb_colors <- wb_colors[str_detect(wb_colors, " ", TRUE)]
-rm_wb_colors <- c(
+colors <- get_el_wordlist("colors")
+colors <- colors[str_detect(colors, " ", TRUE)]
+rm_colors <- c(
   "apricot",
   "buff",
   "cardinal",
@@ -55,28 +55,28 @@ rm_wb_colors <- c(
   "tomato",
   "wheat"
 )
-wb_colors <- wb_colors[wb_colors %out% rm_wb_colors]
+colors <- colors[colors %out% rm_colors]
 
-wb_foods <- get_el_wordlist("food")
-wb_foods <- wb_foods[str_detect(wb_foods, " |-", TRUE)]
-wb_foods <- tolower(wb_foods)
-wb_foods <- wb_foods[nchar(wb_foods) %in[]% c(4, 8)]
+foods <- get_el_wordlist("food")
+foods <- foods[str_detect(foods, " |-", TRUE)]
+foods <- tolower(foods)
+foods <- foods[nchar(foods) %in[]% c(4, 8)]
 
-wb_fruits <- get_el_wordlist("fruit")
-wb_fruits <- wb_fruits[str_detect(wb_fruits, " |-", TRUE)]
-wb_fruits <- wb_fruits[nchar(wb_fruits) %in[]% c(4, 10)]
+fruits <- get_el_wordlist("fruit")
+fruits <- fruits[str_detect(fruits, " |-", TRUE)]
+fruits <- fruits[nchar(fruits) %in[]% c(4, 10)]
 
-wb_verbs <- rcorpora::corpora("words/verbs_with_conjugations")
-wb_verbs <- unlist(wb_verbs$gerund)
-wb_verbs <- wb_verbs[str_detect(wb_verbs, " |-", TRUE)]
-wb_verbs <- wb_verbs[str_detect(wb_verbs, "ing$")]
+verbs <- rcorpora::corpora("words/verbs_with_conjugations")
+verbs <- unlist(verbs$gerund)
+verbs <- verbs[str_detect(verbs, " |-", TRUE)]
+verbs <- verbs[str_detect(verbs, "ing$")]
 
 usethis::use_data(
-  wb_adjectives,
-  wb_adverbs,
-  wb_animals,
-  wb_colors,
-  wb_foods,
-  wb_fruits,
-  wb_verbs,
+  adjectives,
+  adverbs,
+  animals,
+  colors,
+  foods,
+  fruits,
+  verbs,
   overwrite = TRUE)
