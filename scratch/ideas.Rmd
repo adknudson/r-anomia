@@ -27,9 +27,9 @@ chunknames:
     prefix: "020"
     suffix: no
     pattern:
-      - wb_adjectives
-      - wb_colors
-      - wb_animals
+      - adjectives
+      - colors
+      - [animals, shapes]
       - my_list1
     case: "lower/upper/title/sentence"
     sep: "-"

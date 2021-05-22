@@ -20,7 +20,8 @@ Imports:
     stringi,
     stringr,
     rmarkdown,
-    rstudioapi
+    rstudioapi,
+    miniUI
 Remotes:
   ropensci/tinkr
 Depends: 

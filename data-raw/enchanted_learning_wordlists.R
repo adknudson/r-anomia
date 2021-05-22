@@ -80,3 +80,14 @@ usethis::use_data(
   fruits,
   verbs,
   overwrite = TRUE)
+
+usethis::use_data(
+  adjectives,
+  adverbs,
+  animals,
+  colors,
+  foods,
+  fruits,
+  verbs,
+  overwrite = TRUE,
+  internal = TRUE)
