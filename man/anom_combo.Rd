@@ -13,7 +13,8 @@ anom_combo(
 )
 }
 \arguments{
-\item{pattern}{A list of character vectors.}
+\item{pattern}{A list of word banks to use for names. See 'Details' for a
+full list of word banks included in this package.}
 
 \item{prefix}{A string to prepend to the names. Can be left NULL.}
 

@@ -10,19 +10,21 @@ Description: The main problem for those with anomic aphasia (anomia) is finding 
     appropriate word to identify an object or person. It's the same problem for naming code 
     chunks in an Rmarkdown file. This package will do the work of naming your code blocks 
     for you in a customizable way.
-License: GPL (>= 3) + file LICENSE
+URL: https://github.com/adknudson/r-anomia
+BugReports: https://github.com/adknudson/r-anomia/issues
+License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Imports: 
-    xml2,
-    stringi,
-    stringr,
+    miniUI,
     rmarkdown,
     rstudioapi,
-    miniUI
+    stringi,
+    stringr,
+    xml2
 Remotes:
-  ropensci/tinkr
+    ropensci/tinkr
 Depends: 
     R (>= 2.10)

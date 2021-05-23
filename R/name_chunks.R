@@ -3,15 +3,16 @@
 #' @param path The path to an R Markdown file
 #' @param template An anomia name template class
 #' @param overwrite Should the modified R Markdown file be overwritten.
-#' @param unname_chunks Should existing chunk names be removed before generating new names.
-#'     This will try to preserve the "setup" block.
+#' @param unname_chunks Should existing chunk names be removed before generating
+#'   new names. This will try to preserve the "setup" block.
 #'
 #' @export
-name_chunks <- function(path, template, unname_chunks = FALSE, overwrite) {
+anom_name_chunks <- function(path, template, unname_chunks = FALSE, overwrite) {
   rmd_file <- tinkr::yarn$new(path)
 
-  # code_blocks is linked to the rmd_file, so it is possible to modify elements of this and
-  # then write with the rmd_file.
+  # {xml2} objects are passed by reference, manipulating them does not require
+  # reassignment.
+  # see here: https://github.com/ropensci/tinkr#markdown
   code_blocks <- xml2::xml_find_all(
     x = rmd_file$body,
     xpath = ".//md:code_block",
@@ -32,8 +33,14 @@ name_chunks <- function(path, template, unname_chunks = FALSE, overwrite) {
   has_no_name <- cb_names == ""
   num_unnamed <- sum(has_no_name)
 
-  if (missing(template))
-    template <- anom_combo()
+  if (missing(template)) {
+    yml <- anom_get_yml(path)
+    if (is.null(yml)) {
+      template <- anom_combo()
+    } else {
+      template <- anom_parse_yml(yml)
+    }
+  }
 
   cb_names[has_no_name] <- anom_generate_name(template, num_unnamed)
   xml2::`xml_attr<-`(code_blocks, "name", value = cb_names)
@@ -48,5 +55,5 @@ name_chunks <- function(path, template, unname_chunks = FALSE, overwrite) {
     rmd_file$write(path)
   }
 
-  NULL
+  invisible(NULL)
 }

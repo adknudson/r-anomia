@@ -21,8 +21,8 @@ new_combo(
 
 \item{sep}{A string used for separating the prefix, words, and suffix.}
 
-\item{case}{The capitalization used for the words. Can be "lower" (default), "upper",
-"title", or "sentence".}
+\item{case}{The capitalization used for the words. Can be "lower" (default),
+"upper", "title", or "sentence".}
 }
 \description{
 Constructor method for combination template

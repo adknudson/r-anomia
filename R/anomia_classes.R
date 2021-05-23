@@ -6,8 +6,8 @@
 #' @param prefix A string to prepend to the names. Can be left NULL.
 #' @param suffix A string to append to the names. Can be left NULL.
 #' @param sep A string used for separating the prefix, words, and suffix.
-#' @param case The capitalization used for the words. Can be "lower" (default), "upper",
-#'     "title", or "sentence".
+#' @param case The capitalization used for the words. Can be "lower" (default),
+#'   "upper", "title", or "sentence".
 new_combo <- function(pattern = list(),
                       prefix = character(),
                       suffix = character(),
@@ -48,7 +48,8 @@ validate_combo <- function(x) {
 
 #' Create a combination name template
 #'
-#' @param pattern A list of character vectors.
+#' @param pattern A list of word banks to use for names. See 'Details' for a
+#'   full list of word banks included in this package.
 #' @param prefix A string to prepend to the names. Can be left NULL.
 #' @param suffix A string to append to the names. Can be left NULL.
 #' @param sep A string used for separating the prefix, words, and suffix.
@@ -61,7 +62,7 @@ anom_combo <- function(pattern,
                        suffix = NULL,
                        sep = "-",
                        case = c("lower", "upper", "title", "sentence")) {
-  if (missing(pattern)) pattern <- default_combo()
+  if (missing(pattern)) pattern <- anom_combo_default()
   if (is.null(sep)) sep <- ""
   case <- match.arg(case)
 
@@ -75,16 +76,16 @@ anom_combo <- function(pattern,
 }
 
 #' @export
-default_combo <- function() {
+anom_combo_default <- function() {
   list(
-    c(adjectives, colors),
-    c(animals, foods, fruits)
+    c("adjectives", "colors"),
+    c("animals", "foods", "fruits")
   )
 }
 
 #' @export
-alternate_combo <- function() {
-  list(verbs, adverbs)
+anom_combo_alternate <- function() {
+  list("verbs", "adverbs")
 }
 
 # Random String Template --------------------------------------------------------------
