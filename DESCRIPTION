@@ -25,6 +25,6 @@ Imports:
     stringr,
     xml2
 Remotes:
-    ropensci/tinkr
+    ropenscilabs/tinkr
 Depends: 
     R (>= 2.10)
