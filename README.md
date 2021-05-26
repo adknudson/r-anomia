@@ -22,8 +22,8 @@ not yet on CRAN.
 To install `anomia`
 
 ``` r
-remotes::install_github("ropenscilabs/tinkr")
-remotes::install_github("adknudson/r-anomia")
+remotes::install_github("ropensci/tinkr")
+remotes::install_github("adknudson/anomia")
 ```
 
 ## Examples

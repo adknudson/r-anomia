@@ -27,7 +27,7 @@ The goal of `anomia` is to make it easy to give your R Markdown code chunks a na
 To install `anomia`
 
 ```{r, eval=FALSE}
-remotes::install_github("ropenscilabs/tinkr")
+remotes::install_github("ropensci/tinkr")
 remotes::install_github("adknudson/anomia")
 ```
 

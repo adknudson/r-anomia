@@ -62,7 +62,14 @@ anom_combo <- function(pattern,
                        suffix = NULL,
                        sep = "-",
                        case = c("lower", "upper", "title", "sentence")) {
-  if (missing(pattern)) pattern <- anom_combo_default()
+  if (missing(pattern))
+    pattern <- anom_combo_default()
+
+  pattern <- lapply(pattern, function(wb) {
+    # word banks are given by name, so they need to be retrieved
+    do.call(c, lapply(wb, get, pos = 1))
+  })
+
   if (is.null(sep)) sep <- ""
   case <- match.arg(case)
 
