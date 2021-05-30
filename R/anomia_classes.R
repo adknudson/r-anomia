@@ -9,17 +9,17 @@
 #' @param case The capitalization used for the words. Can be "lower" (default),
 #'   "upper", "title", or "sentence".
 new_combo <- function(pattern = list(),
-                      prefix = character(),
-                      suffix = character(),
-                      sep = character(),
-                      case = character()) {
+                      prefix  = character(),
+                      suffix  = character(),
+                      sep     = character(),
+                      case    = character()) {
   structure(
     pattern,
     prefix = prefix,
     suffix = suffix,
-    sep = sep,
-    case = case,
-    class = c("combo", "anomia_template", "list")
+    sep    = sep,
+    case   = case,
+    class  = c("combo", "anomia_template", "list")
   )
 }
 
@@ -28,10 +28,10 @@ new_combo <- function(pattern = list(),
 #' @param x A combo template
 validate_combo <- function(x) {
   pattern <- unclass(x)
-  prefix <- attr(x, "prefix")
-  suffix <- attr(x, "suffix")
-  sep <- attr(x, "sep")
-  case <- attr(x, "case")
+  prefix  <- attr(x, "prefix")
+  suffix  <- attr(x, "suffix")
+  sep     <- attr(x, "sep")
+  case    <- attr(x, "case")
 
   stopifnot(is.character(prefix) || is.null(prefix))
   stopifnot(is.character(suffix) || is.null(suffix))
@@ -60,8 +60,8 @@ validate_combo <- function(x) {
 anom_combo <- function(pattern,
                        prefix = NULL,
                        suffix = NULL,
-                       sep = "-",
-                       case = c("lower", "upper", "title", "sentence")) {
+                       sep    = "-",
+                       case   = c("lower", "upper", "title", "sentence")) {
   if (missing(pattern))
     pattern <- anom_combo_default()
 

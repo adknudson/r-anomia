@@ -26,34 +26,34 @@ anom_parse_yml <- function(yml) {
   )
 }
 
-anom_parse_yml_combo <- function(yml) {
-  pattern <- yml$pattern
+anom_parse_yml_combo <- function(tmpl) {
+  pattern <- tmpl$pattern
   if (is.null(pattern))
     pattern <- anom_combo_default()
 
   pattern <- lapply(pattern, function(wb) {
     # word banks are given by name, so they need to be retrieved
-    do.call(c, lapply(wb, get, pos = 1))
+    do.call(c, lapply(wb, get, pos = 2))
   })
 
-  prefix  <- yml$prefix
-  suffix  <- yml$suffix
+  prefix  <- tmpl$prefix
+  suffix  <- tmpl$suffix
 
-  sep <- yml$sep
+  sep <- tmpl$sep
   if (is.null(sep))
     sep <- "-"
 
-  case <- yml$case
+  case <- tmpl$case
   if (is.null(case))
     case <- "lower"
 
-  anom_combo(
+  validate_combo(new_combo(
     pattern = pattern,
     prefix  = prefix,
     suffix  = suffix,
     sep     = sep,
     case    = case
-  )
+  ))
 }
 
 anom_write_datasets <- function() {
