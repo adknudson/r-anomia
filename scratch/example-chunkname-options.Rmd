@@ -3,13 +3,13 @@ title: "example chunk options"
 author: "Alex Knudson"
 date: "5/14/2021"
 output: html_document
-chunknames:
+anomia:
   combo:
     prefix: "020"
     suffix: "adk"
     pattern:
-      - [wb_adjectives, wb_colors]
-      - [wb_animals, wb_fruits]
+      - [adjectives, colors]
+      - [animals, fruits]
     sep: "-"
     case: "title"
 ---

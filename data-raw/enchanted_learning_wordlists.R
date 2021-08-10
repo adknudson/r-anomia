@@ -79,4 +79,5 @@ usethis::use_data(
   foods,
   fruits,
   verbs,
+  internal = TRUE,
   overwrite = TRUE)
